@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class servletAction
  */
 @WebServlet("/servletAction")
-public class servletAction extends HttpServlet {
+public class servletLoginAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -19,6 +19,7 @@ public class servletAction extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		//login.jsp에서 전달받은 파라미터를 가공
 	}
 
 }
