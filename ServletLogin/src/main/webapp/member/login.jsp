@@ -16,7 +16,7 @@
 	border: 1px solid black;
 	margin: 0 auto;
 	margin-top: 30px;
-	border-radius: 10px;+555555-5-*
+	border-radius: 10px;
 	width: 35%;
 	min-height: 600px;
 	align-content: center;
