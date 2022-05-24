@@ -17,7 +17,7 @@
 	margin-top: 30px;
 	border-radius: 10px;
 	width: 35%;
-	height: 550px;
+	height: 580px;
 	align-content: center;
 }
 
@@ -99,6 +99,12 @@ div input{
 	margin-top: 20px;
 	float: right;
 }
+
+
+.login-enroll{
+	margin-top: 10px;
+	margin-left: 70px;
+}
 </style>
 
 <script>
@@ -133,6 +139,7 @@ $(document).ready(function(){
 		    </div>
  		</form>
 	</div>
+	<div class="login-enroll"><a href="#">아직 아이디가 없으신가요?</a></div>
 	
 	<div id="login">
 		<input id="login" type="button" value="로그인"><br>
