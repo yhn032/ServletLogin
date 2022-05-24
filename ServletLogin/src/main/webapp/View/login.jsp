@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
 	border: 1px solid black;
 	margin: 0 auto;
 	margin-top: 30px;
-	border-radius: 10px;
+	border-radius: 10px;+555555-5-*
 	width: 35%;
 	min-height: 600px;
 	align-content: center;
