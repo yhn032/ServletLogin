@@ -17,7 +17,7 @@
 	margin-top: 30px;
 	border-radius: 10px;
 	width: 35%;
-	min-height: 600px;
+	height: 550px;
 	align-content: center;
 }
 
@@ -32,24 +32,78 @@
 	margin-bottom: 30px;
 }
 
-.form-control{
-	width: 70%;
-	border-radius: 50px solid black;
-	margin: 0 auto;
-	margin-top: 10px;
-}
 
 i {
-	position: absolute;
-	left: 60%;
-	top: 250px;
 	color: orange;
+}
+
+.form_list_input input {
+	border: 0;
+	height: 45px;
+	width: 70%;
+	border-radius: 30px;
+	margin-left: 70px;
+	margin-top: 15px;
+}
+.form_list_input input:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px #9be3f2;
+}
+.form_list_input input::placeholder {
+	font-weight: 500;
+	color: #000000;
+}
+
+div input{
+	border: 0;
+	height: 45px;
+	width: 70%;
+	border-radius: 30px;
+	margin-left: 70px;
+	margin-top: 15px;
+}
+
+#social #naver{
+	background-color: #19ce60;
+	color: white;
+	font-weight: bold;
+}
+#social #naver:hover{
+	outline: none;
+	box-shadow: 0 0 0 3px #1d914a;
+}
+
+#social #google{
+	background-color: #476dea;
+	color: white;
+	font-weight: bold;
+}
+#social #google:hover{
+	outline: none;
+	box-shadow: 0 0 0 3px #1c43c2;
+}
+
+#login input{
+	background-color: #ef4f4f;
+	color: white;
+	font-weight: bold;
+}
+
+#login input:hover{
+	outline: none;
+	box-shadow: 0 0 0 3px #af1111;
+}
+
+#footer {
+	font-size: 8px;
+	margin-top: 20px;
+	float: right;
 }
 </style>
 
 <script>
 $(document).ready(function(){
-    $('.main i').on('click',function(){
+    $('.form_list_input i').on('click',function(){
         $('input').toggleClass('active');
         if($('input').hasClass('active')){
             $(this).prop('class',"fa fa-eye-slash fa-lg")
@@ -60,36 +114,40 @@ $(document).ready(function(){
         }
     });
 });
-
 </script>
 </head>
 <body>
 <!-- 로그인 화면 구성 -->
 <div id="main-login">
 	<div id="header">
-		<h2>한국ICT인재교육원</h2><br>
+		<h2>연애대작전</h2><br>
 		<h4>로그인</h4>
 	</div>
 	
 	<div id="content">
-		<form>
-			<div class="main">
-			    <input type="email" class="form-control" placeholder="Email" id="email" name="email">
-				<input type="password" class="form-control" placeholder="Password" id="pwd" name="pwd">
+ 		<form>
+		    <div class="form_list_input">
+				<input type="email" placeholder="Email" id="email" name="email">
+				<input type="password" placeholder="Password" id="pwd" name="pwd">
 				<i class="fa fa-eye fa-lg"></i>
-			</div>
-		</form>
+		    </div>
+ 		</form>
 	</div>
 	
-	<div id="social">
+	<div id="login">
 		<input id="login" type="button" value="로그인"><br>
+	</div>
+	
+	<div style="text-align: center; margin-top: 15px;">또는</div>
+	
+	<div id="social">
 		<input id="naver" type="button" value="네이버로 계속"><br>
 		<input id="google" type="button" value="구글로 계속"><br>
 	</div>
-
+	
 	<div id="footer">
-		<p>서아진, 최규범, 김병국</p>
-	</div>	
+		한국ICT인재교육원: 서아진, 최규범, 김병국
+	</div>
 </div>
 </body>
 </html>
