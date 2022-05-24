@@ -61,24 +61,6 @@ $(document).ready(function(){
     });
 });
 
-/* $(document).ready(function(){
-    $('.main i').on('click', function(){
-        /* var pwdField = $('#pwd');
-        var pwdFieldType = pwdField.prop('type');
-        
-        if(pwdFieldType == 'password'){
-        	pwdField.prop('type', 'text');
-
-            $(this).val('Hide');
-        }else {
-        	pwdField.prop('type', 'password');
-
-            $(this).val('Show');
-        } */
-/*        
-    });
-}); */
-
 </script>
 </head>
 <body>
