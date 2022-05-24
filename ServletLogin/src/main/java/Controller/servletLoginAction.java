@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class servletAction
  */
-@WebServlet("/servletAction")
+
+//테이블의 데이터를 조회해서 존재하는지 검증
+@WebServlet("/member/list.do")
 public class servletLoginAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
