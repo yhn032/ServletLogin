@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class servletEnrollAction
  */
-@WebServlet("/servletEnrollAction")
+
+//회원가입에 성공하면 테이블에 값을 insert
+@WebServlet("/member/insert.do")
 public class servletEnrollAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
