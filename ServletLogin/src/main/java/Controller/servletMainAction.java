@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class servletLoginAction
+ * Servlet implementation class servletMainAction
  */
-@WebServlet("/member/login.do")
-public class servletLoginAction extends HttpServlet {
+@WebServlet("/member/main.do")
+public class servletMainAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,11 +24,10 @@ public class servletLoginAction extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		//forward
-		String forward_page = "login.jsp";
+		String forward_page = "main.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 
 	}
 
 }
-
