@@ -1,22 +1,26 @@
 --테이블 생성
-grant connect,resource to test7
 
-
-create table member
+create table member2
 (
-id varchar2(100),
+
+email varchar2(100),
 pwd varchar2(100),
 name varchar2(100),
 nickname varchar2(100),
 birth varchar2(100),
 tel varchar2(100),
-email varchar2(100),
 question varchar2(100),
 answer varchar2(100)
+
 )
 
-select * from member
+alter table member2
+add constraint pk_member2_email primary key(email);
 
-drop table member
 
-alter table member drop primary key;
+select * from member2
+
+alter table member2 drop primary key
+alter table member2      drop      column id;        
+
+drop table member2

@@ -57,6 +57,45 @@ i {
 }
 </style>
 
+<script>
+
+	regular_email = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+	regular_pwd = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$/;
+	regular_tel = /\d{3}-\d{3,4}-\d{4}$/;
+	
+	function enroll(){
+		
+		String email = f.email.value;
+		String pwd = f.pwd.value;
+		
+		if(regular_email.test(email)==false){
+			
+			alert("유효한 이메일 형식이 아닙니다.")
+			f.email.value='';
+			f.email.focus();
+		}
+		
+		if(regular_pwd.test(pwd)==false){
+			
+			alert("유효한 비밀번호 형식이 아닙니다.")
+			f.pwd.value='';
+			f.pwd.focus();
+		}
+		
+		if(regular_tel.test(tel)==false){
+			
+			alert("유효한 전화번호 형식이 아닙니다.")
+			f.tel.value='';
+			f.tel.focus();
+		}
+		
+		f.action = "insert.do";
+		f.submit;
+	}
+
+
+</script>
+
 </head>
 <body>
 <!-- 회원가입 폼 생성 -->
@@ -66,23 +105,24 @@ i {
 		<h4>회원가입</h4>
 	</div>
 	
+	
 	<div id="content">
 		<form>
 			<div class="main">
-			    <input type="id" class="form-control" placeholder="아이디" id="id" name="id">
-				<input type="password" class="form-control" placeholder="비밀번호" id="pwd" name="pwd">
+			    
+			    <input type="text" class="form-control" placeholder="이메일" id="email" name="email">
+				<input type="password" class="form-control" placeholder="최소 8자, 하나 이상의 문자,숫자 및 하나의 특수 문자를 입력하세요" id="pwd" name="pwd">
 			    <input type="text" class="form-control" placeholder="이름" id="name" name="name">
 			    <input type="text" class="form-control" placeholder="닉네임" id="nickname" name="nickname">
 			    <input type="text" class="form-control" placeholder="생일(yyyy-mm-dd)" id="birth" name="birth">
-			    <input type="text" class="form-control" placeholder="전화번호(000-000-0000)" id="tel" name="tel">
-			    <input type="text" class="form-control" placeholder="이메일" id="email" name="email">
+			    <input type="text" class="form-control" placeholder="전화번호(xxx-xxxx-xxxx)" id="tel" name="tel">
 			    <br>
 			    <div id="combobox">
 			    질문<select id="question" name = "질문">
         	    <option value = "a" selected>고향은 어디입니까?</option>
 	            <option value = "b">좋아하는 연예인은 누구입니까?</option>
 	            <option value = "c">좋아하는 색깔은 무엇입니까?</option>
-        	    <option value = "d" selected>어머니의 이름은 무엇입니까?</option>
+        	    <option value = "d">어머니의 이름은 무엇입니까?</option>
 	            <option value = "f">아버지의 이름은 무엇입니까?</option>
 	            <option value = "g">출신 초등학교의 이름은 무엇입니까?</option>
 	            </select>
@@ -94,7 +134,7 @@ i {
 	</div>
 	
 	<div id="social">
-		<input id="login" type="button" value="회원가입"><br>
+		<input id="login" type="button" value="회원가입" onclick="enroll(this.form);"><br>
 	</div>
 
 	<div id="footer">
