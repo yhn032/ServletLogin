@@ -8,12 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+
 /**
- * Servlet implementation class servletEnrollAction
+ * Servlet implementation class servletMainAction
  */
-@WebServlet("/member/insert_form.do")
-public class servletEnrollAction extends HttpServlet {
+@WebServlet("/member/main.do")
+public class servletMainAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,11 +24,10 @@ public class servletEnrollAction extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		//forward
-		String forward_page = "enroll.jsp";
+		String forward_page = "main.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 
 	}
 
 }
-
