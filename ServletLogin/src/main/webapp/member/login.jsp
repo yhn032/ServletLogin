@@ -129,6 +129,26 @@ $(document).ready(function(){
     });
 });
 
+var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+function send(f){
+	var email = f.email.value;
+	var pwd   = f.pwd.value;
+	
+	if(regEmail.test(email)==false){
+		alert('이메일의 형식이 올바르지 않습니다. 다시 입력해주세요.');
+		f.email.value='';
+		f.pwd.value='';
+		f.email.focus();
+		return;
+	}
+	
+	
+	
+	
+	f.action="login.do";
+	f.submit();
+};
 
 
 </script>
@@ -141,20 +161,20 @@ $(document).ready(function(){
 		<h4>로그인</h4>
 	</div>
 	
-	<div id="content">
- 		<form>
-		    <div class="form_list_input">
-				<input type="email" placeholder="Email" id="email" name="email">
-				<input type="password" placeholder="Password" id="pwd" name="pwd">
-				<i class="fa fa-eye fa-lg"></i>
-		    </div>
- 		</form>
-	</div>
-	
-	<div class="login-enroll"><a href="#">이메일과 비밀번호를 잊으셨나요?</a></div>
-	<div id="login">
-		<input id="login" type="button" value="로그인"><br>
-	</div>
+	<form>
+		<div id="content">
+			    <div class="form_list_input">
+					<input type="email" placeholder="Email" id="email" name="email">
+					<input type="password" placeholder="Password" id="pwd" name="pwd">
+					<i class="fa fa-eye fa-lg"></i>
+			    </div>
+		</div>
+		
+		<div class="login-enroll"><a href="#">이메일과 비밀번호를 잊으셨나요?</a></div>
+		<div id="login">
+			<input id="login" type="button" value="로그인" onclick="send(this.form);"><br>
+		</div>
+	</form>
 	
 	<div style="text-align: center; margin-top: 15px;">또는</div>
 	
