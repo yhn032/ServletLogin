@@ -5,51 +5,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>연애작전</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
- @media (max-width: 600px) {
- 	#mainbox{
- 	 width: 800px;
- 	 margin: auto;
- 	}
-    .carousel-caption {
-      display: none; 
-    }
-    navbar-default {
-      margin-bottom: 1;
-      border-radius: 1;
-      background-color: #fdc4f3;
-      text-align: center;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #fdc4f3;
-      padding: 25px;
-    }
-    #myNavbar li {
-    	margin-top: 30px;
-    }
-    
-   }
-  </style>
+
 </head>
 <body>
 <div id="mainbox">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle"  data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
       <div>
       	<img src="../image/연애대작전.png" alt="Image">
       </div>
@@ -63,27 +32,60 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="login.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href=""><span class="glyphicon glyphicon-baby-formula"></span> 회원가입</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 
-
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li  data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li  data-target="#myCarousel" data-slide-to="1" ></li>
+      <li  data-target="#myCarousel" data-slide-to="2" ></li>
+    </ol>
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" >
+    <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="../image/덕배.png" alt="Image" style="weight:100%" align="middle">
+        <img src="../image/팬.png" alt="Image" width="100%">
         <div class="carousel-caption">
-          <h3></h3>
-          <p>Money Money.</p>
+          <h3>멋진 데이트를 원하시나요?</h3>
+          <p>ㅋ</p>
+        </div>      
+      </div>
+    
+   
+      <div class="item">
+        <img src="../image/팬.png" alt="Image" width="100%">
+        <div class="carousel-caption">
+          <h3>그런데 데이트 코스를 짜기가 어렵다고요?</h3>
+          <p>ㅋ</p>
+        </div>      
+      </div>
+    
+   
+      <div class="item">
+        <img src="../image/팬.png" alt="Image" width="100%">
+        <div class="carousel-caption">
+          <h3>ㅋ</h3>
+          <p>아주 잘 찾아오셨습니다 바로 가시죠</p>
         </div>      
       </div>
     </div>
 
     <!-- Left and right controls -->
-    
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
 </div>
+
   
 <div class="container text-center">    
   <h3>What We Do</h3><br>
@@ -110,5 +112,6 @@
 <footer class="container-fluid text-center" >
   <p>그대의 원활한 데이트를 기원하며...adios</p>
 </footer>
+</div>
 </body>
 </html>
