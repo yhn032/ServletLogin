@@ -18,7 +18,7 @@
 	margin-top: 30px;
 	border-radius: 10px;
 	width: 35%;
-	height: 580px;
+	height: 610px;
 	align-content: center;
 }
 
@@ -46,10 +46,17 @@ i {
 	margin-left: 70px;
 	margin-top: 15px;
 }
+
+.form_list_input input:hover {
+	outline: none;
+	box-shadow: 0 0 0 3px #9dd3f2;
+}
+
 .form_list_input input:focus {
 	outline: none;
 	box-shadow: 0 0 0 3px #9be3f2;
 }
+
 .form_list_input input::placeholder {
 	font-weight: 500;
 	color: #000000;
@@ -121,6 +128,9 @@ $(document).ready(function(){
         }
     });
 });
+
+
+
 </script>
 </head>
 <body>
@@ -140,8 +150,8 @@ $(document).ready(function(){
 		    </div>
  		</form>
 	</div>
-	<div class="login-enroll"><a href="#">아직 아이디가 없으신가요?</a></div>
 	
+	<div class="login-enroll"><a href="#">이메일과 비밀번호를 잊으셨나요?</a></div>
 	<div id="login">
 		<input id="login" type="button" value="로그인"><br>
 	</div>
@@ -149,10 +159,12 @@ $(document).ready(function(){
 	<div style="text-align: center; margin-top: 15px;">또는</div>
 	
 	<div id="social">
-		<input id="naver" type="button" value="네이버로 계속"><br>
-		<input id="google" type="button" value="구글로 계속"><br>
+		<input id="naver" type="button" value="네이버로 계속" onclick="location.href='https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com'"><br>
+		<input id="google" type="button" value="구글로 계속" onclick="location.href='https://www.google.com/'"><br>
 	</div>
 	
+	
+	<div class="login-enroll"><a href="enroll.jsp">아직 아이디가 없으신가요?</a></div>
 	<div id="footer">
 		한국ICT인재교육원: 서아진, 최규범, 김병국
 	</div>
