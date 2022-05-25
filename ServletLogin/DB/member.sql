@@ -24,3 +24,7 @@ alter table member2 drop primary key
 alter table member2      drop      column id;        
 
 drop table member2
+
+
+--sample
+insert into member2 values('hong1@naver.com', 'qwer1234!', 'È«±æµ¿', 'È«Â¯Â¯', '1994-08-12', '010-1234-1234', '°íÇâÀº ¾îµğÀÔ´Ï±î?', 'Á¶¼±')

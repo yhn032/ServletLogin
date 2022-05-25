@@ -1,6 +1,9 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,6 +138,19 @@ function send(f){
 	var email = f.email.value;
 	var pwd   = f.pwd.value;
 	
+	
+	if(email==''){
+		alert('이메일을 입력하세요.');
+		f.email.focus();
+		return;		
+	}
+	if(pwd==''){
+		alert('비밀번호를 입력하세요.');
+		f.pwd.focus();
+		return;
+	}
+	
+	
 	if(regEmail.test(email)==false){
 		alert('이메일의 형식이 올바르지 않습니다. 다시 입력해주세요.');
 		f.email.value='';
@@ -142,8 +158,6 @@ function send(f){
 		f.email.focus();
 		return;
 	}
-	
-	
 	
 	
 	f.action="login.do";
@@ -154,6 +168,12 @@ function send(f){
 </script>
 </head>
 <body>
+<c:if test="${result==-1 || result == 0 }">
+	<script>
+		alert("아이디 혹은 비밀번호가 틀렸습니다.");
+	</script>
+</c:if>
+
 <!-- 로그인 화면 구성 -->
 <div id="main-login">
 	<div id="header">

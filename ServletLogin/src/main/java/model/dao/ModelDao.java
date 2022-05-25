@@ -32,6 +32,60 @@ public class ModelDao {
 	}
 	
 	
+	//login메소드
+	public int login(String email, String pwd) {
+	      
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select pwd from member2 where email=?";
+
+		try {
+			//1. connection 얻어오기
+			conn = DBService.getInstance().getConnection();
+
+			//2. PreparedStatement 얻어오기
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+
+			//3. ResultSet 얻어오기 
+			rs = pstmt.executeQuery();
+
+			//4. 포장
+			if(rs.next()) {//email과 동일한 값이 있다면,,,
+				if(rs.getString("pwd").equals(pwd)) {//id와 pwd모두 같은 경우 1 리턴
+					return 1;
+				}else {//id는 같고 pwd는 다른 경우 0 리턴
+					return 0;
+				}
+        
+			}
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();//
+			} finally {//반드시 실행하는 구문
+
+				try {
+
+					//연결되어 있는 상태면 끊어라.(생성 역순으로)
+
+					if (rs != null)
+						rs.close(); //3
+					if (pstmt != null)
+						pstmt.close();//2
+					if (conn != null)
+						conn.close();//1
+
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+
+		return -1; //위의 조건에서 걸리지 않는다면 -1리턴 -> id와 비번 모두 틀림
+	}
+	
 	//email 중복체크용 메소드
 	public ModelVo selectFromemail(String email) {
 
