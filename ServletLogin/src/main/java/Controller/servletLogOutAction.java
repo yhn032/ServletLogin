@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class servletMainAction
+ * Servlet implementation class servletLogOutAction
  */
-@WebServlet("/member/main.do")
-public class servletMainAction extends HttpServlet {
+@WebServlet("/member/logout.do")
+public class servletLogOutAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,20 +24,17 @@ public class servletMainAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		//세션값 읽어오기
 		HttpSession session = request.getSession();
-		if(session.getAttribute("user")==null) {//세션정보가 없다면 
-			//forward
-			String forward_page = "main.jsp";
-			RequestDispatcher disp = request.getRequestDispatcher(forward_page);
-			disp.forward(request, response);
-		}else {
-			//forward
-			String forward_page = "welcome_main.jsp";
-			RequestDispatcher disp = request.getRequestDispatcher(forward_page);
-			disp.forward(request, response);
-		}
+		//세션값 삭제하기
+		session.invalidate();
 		
-		
+		//forward
+		String forward_page = "main.do";
+		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
+		disp.forward(request, response);
+
 	}
 
 }
+

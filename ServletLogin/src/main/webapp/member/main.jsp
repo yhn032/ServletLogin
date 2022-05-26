@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!-- 기본 화면, 로그인하지 않은 상황에서 보이는 화면 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +16,6 @@
 
 </head>
 <body>
-<c:if test="${ !empty user }">
-	<script>
-		alert('${user.nickname }님 환영합니다!');
-	</script>
-</c:if>
 <c:if test="${empty user }">
 	<script>
 		alert('Guest님 환영합니다!');
@@ -42,9 +38,6 @@
         <li><a href="#">후기</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      	<c:if test="${!empty user }">
-	      	<li><input type="hidden">${user.nickname }님 환영합니다.</li>
-      	</c:if>
       	<c:if test="${empty user }">
 	      	<li><input type="hidden">Guest님 환영합니다.</li>
       	</c:if>
