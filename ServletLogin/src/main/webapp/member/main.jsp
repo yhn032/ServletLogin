@@ -59,28 +59,28 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="../image/팬.png" alt="Image" width="100%">
+         <img src="../image/이색.png" alt="Image" width="100%">
         <div class="carousel-caption">
           <h3>멋진 데이트를 원하시나요?</h3>
-          <p>ㅋ</p>
+          <p></p>
         </div>      
       </div>
     
    
       <div class="item">
-        <img src="../image/팬.png" alt="Image" width="100%">
+       <img src="../image/레스토랑.png" alt="Image" width="100%">
         <div class="carousel-caption">
           <h3>그런데 데이트 코스를 짜기가 어렵다고요?</h3>
-          <p>ㅋ</p>
+          <p></p>
         </div>      
       </div>
     
    
       <div class="item">
-        <img src="../image/팬.png" alt="Image" width="100%">
+       <img src="../image/그림.jpg" alt="Image" width="100%">
         <div class="carousel-caption">
-          <h3>ㅋ</h3>
-          <p>아주 잘 찾아오셨습니다 바로 가시죠</p>
+          <h3>아주 잘 찾아오셨습니다 바로 가시죠</h3>
+          <p></p>
         </div>      
       </div>
     </div>
@@ -98,7 +98,7 @@
 
   
 <div class="container text-center">    
-  <h3>What We Do</h3><br>
+  <h2>성공한 데이트 코스 후기</h2><br>
   <div class="row">
     <div class="col-sm-4">
       <img src="../image/덕배.png" class="img-responsive" style="width:100%" alt="Image">
