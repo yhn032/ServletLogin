@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+<!-- 로그인 성공시 보여지는 화면 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +22,7 @@
 		alert('${user.nickname }님 환영합니다!');
 	</script>
 </c:if>
-<c:if test="${empty user }">
-	<script>
-		alert('Guest님 환영합니다!');
-	</script>
-</c:if>
+
 
 <div id="mainbox">
 <nav class="navbar navbar-default">
@@ -45,7 +43,7 @@
       	<c:if test="${!empty user }">
 	      	<li><input type="hidden">${user.nickname }님 환영합니다.</li>
       	</c:if>
-        <li><a href="login_form.do"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="logout.do"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </div>
