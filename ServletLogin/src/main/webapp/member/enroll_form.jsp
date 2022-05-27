@@ -55,6 +55,11 @@ i {
 #combobox{
    margin-left: 95px;
 }
+
+#login{
+	margin: auto;
+	
+}
 </style>
 
 <script>
@@ -64,10 +69,11 @@ i {
 	regular_pwd = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$/;
 	regular_tel = /\d{3}-\d{3,4}-\d{4}$/;
 	
-	function enroll(){
+	function enroll(f){
 		
-		String email = f.email.value;
-		String pwd = f.pwd.value;
+		var email = f.email.value;
+		var pwd	 = f.pwd.value;
+		var tel	 = f.tel.value;
 		
 		if(regular_email.test(email)==false){
 			
@@ -91,7 +97,7 @@ i {
 		}
 		
 		f.action = "insert.do";
-		f.submit;
+		f.submit();
 	}
 
 
@@ -129,14 +135,12 @@ i {
 	            </select>
 	            </div>
 	            <input type="text" class="form-control" placeholder="답변" id="answer" name="answer">
-	        	
+	        	<input id="login" type="button" value="회원가입" onclick="enroll(this.form);">
 			</div>
 		</form>
 	</div>
 	
-	<div id="social">
-		<input id="login" type="button" value="회원가입" onclick="enroll(this.form);"><br>
-	</div>
+	
 
 	<div id="footer">
 		<p>서아진, 최규범, 김병국</p>
