@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 //회원가입에 성공하면 테이블에 값을 insert
-@WebServlet("/member/insert_form.do")
+@WebServlet("/member/enroll_form.do")
 public class servletEnrollFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

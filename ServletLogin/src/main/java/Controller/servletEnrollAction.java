@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.ModelDao;
 import model.vo.ModelVo;
@@ -14,7 +15,7 @@ import model.vo.ModelVo;
 /**
  * Servlet implementation class servletEnrollAction
  */
-@WebServlet("/insert.do")
+@WebServlet("/member/insert.do")
 public class servletEnrollAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,10 +46,15 @@ public class servletEnrollAction extends HttpServlet {
 				                 birth, tel, question, answer);
 		
 		//4.insert수행
-		int res = ModelDao.getInstance().enroll(vo);
+		ModelDao.getInstance().enroll(vo);
 		
-		//5.insert후 메인화면 출력
-		response.sendRedirect("");
+		//5.회원가입정보로 로그인한 메인화면 호출
+		vo = ModelDao.getInstance().selectFromemail(email); 
+		  
+		  HttpSession session = request.getSession();
+		  session.setAttribute("user", vo); //세션값으로 로그인한 사용자의 정보 기억
+		  response.sendRedirect("main.do");
+		
 
 		
 

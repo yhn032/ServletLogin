@@ -215,7 +215,7 @@ public class ModelDao {
 		PreparedStatement  pstmt = null;
 		
 		//										1  2  3  4  5  6  7  8
-		String sql = "insert into member values(?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into member2 values(?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		
 		try {
