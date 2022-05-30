@@ -44,7 +44,7 @@
 	      	<li><a href=""><input type="hidden">Guest님 환영합니다.</a></li>
       	</c:if>
         <li><a href="login_form.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li><a href=""><span class="glyphicon glyphicon-baby-formula"></span> 회원가입</a></li>
+        <li><a href="enroll_form.do"><span class="glyphicon glyphicon-baby-formula"></span> 회원가입</a></li>
       </ul>
     </div>
   </div>

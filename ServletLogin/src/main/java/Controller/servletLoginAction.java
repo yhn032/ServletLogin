@@ -26,7 +26,7 @@ public class servletLoginAction extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//로그인한 정보를 login_form.jsp로부터 전달받는 서블릿. 데이터를 가공해서 로그인 성공 여부를 판단한다.
+		//로그인한 정보를 login_form.jsp로부터 전달받는x 서블릿. 데이터를 가공해서 로그인 성공 여부를 판단한다.
 		
 		  //파라미터 수신. 한글이 없으니까 수신인코딩안해도 될듯. (닉네임을 메인화면에 출력하고자 한다면 해줘야 함)
 		  String email = request.getParameter("email"); 
@@ -48,6 +48,7 @@ public class servletLoginAction extends HttpServlet {
 			  disp.forward(request, response);
 		  
 		  }
+		  
 
 	}
 
