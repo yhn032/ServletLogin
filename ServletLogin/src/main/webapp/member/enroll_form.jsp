@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/enroll.css">
 
+
 <script>
 
 	regular_email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
@@ -107,9 +108,7 @@
 	<div id="social">
 		<input id="login" type="button" value="회원가입" onclick="enroll(this.form);">
 	</div>
-	
 </form>
-
     <hr>
 	<div id="footer">
 		<p>서아진, 최규범, 김병국</p>
