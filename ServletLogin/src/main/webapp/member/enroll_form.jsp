@@ -70,7 +70,7 @@
 <!-- 회원가입 폼 생성 -->
 <div id="main-login">
 	<div id="header">
-		<h2>한국ICT인재교육원</h2><br>
+		<h2>연애대작전</h2><br>
 		<h4>회원가입</h4>
 	</div>
 	

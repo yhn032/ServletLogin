@@ -115,8 +115,13 @@ public class ModelDao {
 				//Vo·Î Æ÷Àå
 				vo = new ModelVo();
 				vo.setEmail(rs.getString("email"));
+				vo.setName(rs.getString("name"));
 				vo.setNickname(rs.getString("nickname"));
 				vo.setPwd(rs.getString("pwd"));
+				vo.setBirth(rs.getString("birth"));
+				vo.setTel(rs.getString("tel"));
+				vo.setQuestion(rs.getString("question"));
+				vo.setAnswer(rs.getString("answer"));
 			
 			}
 

@@ -75,7 +75,6 @@
         </div>      
       </div>
     
-   
       <div class="item">
         <img src="../image/팬.png" alt="Image" width="100%">
         <div class="carousel-caption">

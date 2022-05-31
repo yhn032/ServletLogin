@@ -54,10 +54,7 @@ public class servletEnrollAction extends HttpServlet {
 		  HttpSession session = request.getSession();
 		  session.setAttribute("user", vo); //세션값으로 로그인한 사용자의 정보 기억
 		  response.sendRedirect("main.do");
-		
-
-		
-
+	
 	}
 
 }
