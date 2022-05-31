@@ -43,3 +43,20 @@
   	margin-left: 15px;
   	margin-top: 15px;
   }
+  
+  #c_table{
+ 	 margin: auto;
+ 	 width: 1000px;
+ 	 margin-top : 20px;
+  }
+  
+  #c_table th, #c_table td{
+ 	 text-align: center;
+  }
+  
+  #star{
+  	font-size: 30px;
+  	color: yellow;
+  	border: none;
+  }
+  
