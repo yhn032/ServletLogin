@@ -204,7 +204,7 @@ function send(f){
 	</div>
 	
 	
-	<div class="login-enroll"><a href="insert_form.do">아직 아이디가 없으신가요?</a></div>
+	<div class="login-enroll"><a href="enroll_form.do">아직 아이디가 없으신가요?</a></div>
 	<div id="footer">
 		한국ICT인재교육원: 서아진, 최규범, 김병국
 	</div>

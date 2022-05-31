@@ -16,11 +16,13 @@
 
 </head>
 <body>
+
 <c:if test="${empty user }">
 	<script>
 		alert('Guest님 환영합니다!');
 	</script>
 </c:if>
+
 
 <div id="mainbox">
 <nav class="navbar navbar-default">
@@ -39,7 +41,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<c:if test="${empty user }">
-	      	<li><input type="hidden">Guest님 환영합니다.</li>
+	      	<li><a href=""><input type="hidden">Guest님 환영합니다.</a></li>
       	</c:if>
         <li><a href="login_form.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li><a href="enroll_form.do"><span class="glyphicon glyphicon-baby-formula"></span> 회원가입</a></li>
@@ -59,27 +61,27 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="../image/팬.png" alt="Image" width="100%">
+         <img src="../image/이색.png" alt="Image" width="100%">
         <div class="carousel-caption">
           <h3>멋진 데이트를 원하시나요?</h3>
-          <p>ㅋ</p>
+          <p></p>
         </div>      
       </div>
     
    
       <div class="item">
-        <img src="../image/팬.png" alt="Image" width="100%">
+       <img src="../image/레스토랑.png" alt="Image" width="100%">
         <div class="carousel-caption">
           <h3>그런데 데이트 코스를 짜기가 어렵다고요?</h3>
-          <p>ㅋ</p>
+          <p></p>
         </div>      
       </div>
     
       <div class="item">
-        <img src="../image/팬.png" alt="Image" width="100%">
+       <img src="../image/그림.jpg" alt="Image" width="100%">
         <div class="carousel-caption">
-          <h3>ㅋ</h3>
-          <p>아주 잘 찾아오셨습니다 바로 가시죠</p>
+          <h3>아주 잘 찾아오셨습니다 바로 가시죠</h3>
+          <p></p>
         </div>      
       </div>
     </div>
@@ -97,29 +99,25 @@
 
   
 <div class="container text-center">    
-  <h3>What We Do</h3><br>
+  <h2>성공한 데이트 코스 후기</h2><br>
   <div class="row">
     <div class="col-sm-4">
-      <img src="../image/덕배.png" class="img-responsive" style="width:100%" alt="Image">
-      <p>Current Project</p>
+      <img src="../image/팬.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>조용한 실내데이트</p>
     </div>
     <div class="col-sm-4"> 
       <img src="../image/팬.png" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
+      <p>익스트림 야외데이트</p>    
     </div>
-    <div class="col-sm-4">
-      <div class="well">
-       <p>Some text..</p>
-      </div>
-      <div class="well">
-       <p>Some text..</p>
-      </div>
+     <div class="col-sm-4"> 
+      <img src="../image/팬.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>적당적당한 데이트</p>    
     </div>
   </div>
 </div><br>
 
 <footer class="container-fluid text-center" >
-  <p>그대의 원활한 데이트를 기원하며...adios</p>
+  <p>언제나 그대의 원활한 데이트를 기원하며...adios</p>
 </footer>
 </div>
 </body>
