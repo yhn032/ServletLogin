@@ -77,7 +77,6 @@
         </div>      
       </div>
     
-   
       <div class="item">
        <img src="../image/그림.jpg" alt="Image" width="100%">
         <div class="carousel-caption">
