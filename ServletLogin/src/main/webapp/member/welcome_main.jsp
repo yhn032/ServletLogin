@@ -34,9 +34,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar" >
       <ul class="nav navbar-nav">
-        <li><a href="#">Home</a></li>
+        <li><a href="main.do">Home</a></li>
         <li><a href="#">코스만들기</a></li>
-        <li><a href="#">코스추천</a></li>
+        <li><a href="course.do">코스추천</a></li>
         <li><a href="#">후기</a></li>
         <li><a href="#">찜한코스</a></li>
         <li><a href="member_inform.jsp">회원정보수정</a></li>
