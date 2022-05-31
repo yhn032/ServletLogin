@@ -190,7 +190,7 @@ function send(f){
 			    </div>
 		</div>
 		
-		<div class="login-enroll"><a href="#">이메일과 비밀번호를 잊으셨나요?</a></div>
+		<div class="login-enroll"><a href="find_form.do">이메일과 비밀번호를 잊으셨나요?</a></div>
 		<div id="login">
 			<input id="login" type="button" value="로그인" onclick="send(this.form);"><br>
 		</div>
