@@ -33,6 +33,10 @@ public class ModelVo {
 
 
 
+	public ModelVo(String email) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getPwd() {
 		return pwd;
 	}

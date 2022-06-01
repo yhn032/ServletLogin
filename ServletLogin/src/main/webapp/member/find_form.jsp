@@ -105,7 +105,8 @@ function check(f){
 		f.answer.focus();
 		return;
 	}
-	location.href = 'find.do?email='+email;
+	f.action='find.do';
+	f.submit();
 
 }
 	
@@ -114,7 +115,7 @@ function check(f){
 
 <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
 	<form>
-		<div class="card align-middle" style="width:500px;">
+		<div class="card align" style="width:500px; background-color: #FFF0F5;">
 			<div class="card-title" style="margin-top:30px;">        
 				<h2 class="card-title" style="color:#ffc0cb;"><img src="../image/연애대작전.png"> 연 애 대 작 전</h2>
 			</div>    
