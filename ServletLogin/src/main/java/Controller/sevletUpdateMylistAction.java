@@ -14,7 +14,7 @@ import model.dao.FavoritesDao;
 /**
  * Servlet implementation class sevletUpdateMylistAction
  */
-@WebServlet("/member/update_mylist.do")
+@WebServlet("/favorites/update_mylist.do")
 public class sevletUpdateMylistAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

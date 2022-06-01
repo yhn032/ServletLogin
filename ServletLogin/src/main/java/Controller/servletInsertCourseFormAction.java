@@ -9,13 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.FavoritesDao;
-
 /**
- * Servlet implementation class servletDeleteMyListAction
+ * Servlet implementation class servletInsertCourseFormAction
  */
-@WebServlet("/favorites/delete_mylist.do")
-public class servletDeleteMyListAction extends HttpServlet {
+@WebServlet("/favorites/insert_course_form.do")
+public class servletInsertCourseFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,10 +22,11 @@ public class servletDeleteMyListAction extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nickname = "¾øÀ½";
-		int idx = Integer.parseInt(request.getParameter("idx"));
-		
-		FavoritesDao.getInstance().updateForMyList(nickname, idx);
+
+		//forward
+		String forward_page = "insert_course_form.jsp";
+		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
+		disp.forward(request, response);
 
 	}
 
