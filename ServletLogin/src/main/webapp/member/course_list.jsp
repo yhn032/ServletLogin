@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
 <title>연애작전</title>
 <meta charset="utf-8">
@@ -19,7 +19,7 @@
 /* 전역변수 */
 idx = 0;
 function send(i){
-	idx = i;
+	idx = i; 
 }
 $(document).ready(function (){
 	$("#star").click(function(){
