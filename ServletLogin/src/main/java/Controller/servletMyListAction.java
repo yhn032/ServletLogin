@@ -18,7 +18,7 @@ import model.vo.ModelVo;
 /**
  * Servlet implementation class servletMyListAction
  */
-@WebServlet("/member/mylist.do")
+@WebServlet("/favorites/mylist.do")
 public class servletMyListAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -5,6 +5,7 @@ public class FavoritesVo {
 	String coTitle;
 	String coId;
 	int coView;
+	String coText;
 	
 	
 	
@@ -14,12 +15,25 @@ public class FavoritesVo {
 
 
 
-	public FavoritesVo(int idx, String coTitle, String coId, int coView) {
+	public FavoritesVo(int idx, String coTitle, String coId, int coView, String coText) {
 		super();
 		this.idx = idx;
 		this.coTitle = coTitle;
 		this.coId = coId;
 		this.coView = coView;
+		this.coText = coText;
+	}
+
+
+
+	public String getCoText() {
+		return coText;
+	}
+
+
+
+	public void setCoText(String coText) {
+		this.coText = coText;
 	}
 
 
