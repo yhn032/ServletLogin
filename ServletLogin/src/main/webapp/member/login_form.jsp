@@ -135,9 +135,17 @@ $(document).ready(function(){
             .prev('input').prop('type','password');
         }
     });
+    
+    $("#login_form").keypress(function(e){
+    	if(e.keyCode == 13){
+    		$(this).submit();
+    	}
+    });
 });
 
 var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+
 
 function send(f){
 	var email = f.email.value;
@@ -186,7 +194,7 @@ function send(f){
 		<h4>로그인</h4>
 	</div>
 	
-	<form>
+	<form action="login.do" method="GET" id="login_form" name="login">
 		<div id="content">
 			    <div class="form_list_input">
 					<input type="email" placeholder="Email" id="email" name="email">
@@ -195,7 +203,7 @@ function send(f){
 			    </div>
 		</div>
 		
-		<div class="login-enroll"><a href="#">이메일과 비밀번호를 잊으셨나요?</a></div>
+		<div class="login-enroll"><a href="find_form.do">이메일과 비밀번호를 잊으셨나요?</a></div>
 		<div id="login">
 			<input id="login" type="button" value="로그인" onclick="send(this.form);"><br>
 		</div>

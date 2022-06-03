@@ -57,9 +57,22 @@
  	 text-align: center;
   }
   
-  #star{
+  .star{
   	font-size: 30px;
   	color: yellow;
   	border: none;
+  	background-color: white;
+  	text-shadow: 1px 1px 1px orange;
+  }
+  
+  #detail_course{
+  	margin: auto;
+  	margin-top: 50px;
+  	width: 700px;
+  }
+  
+  #mylist_title{
+  	width: 400px;
+  	margin-left: 140px;
   }
   

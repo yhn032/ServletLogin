@@ -1,9 +1,7 @@
 package Controller;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +12,10 @@ import model.dao.FavoritesDao;
 import model.vo.FavoritesVo;
 
 /**
- * Servlet implementation class servletCourseAction
+ * Servlet implementation class servletInsertCourseAction
  */
-@WebServlet("/favorites/course.do")
-public class servletCourseAction extends HttpServlet {
+@WebServlet("/favorites/insert_course.do")
+public class servletInsertCourseAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -27,18 +25,23 @@ public class servletCourseAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
 		
-		List<FavoritesVo> list = FavoritesDao.getInstance().selectList();
+		String coId    = request.getParameter("coId");
+		String coTitle = request.getParameter("coTitle");
+		String coText  = request.getParameter("coText");
 		
-		request.setAttribute("list", list);
+		coTitle = coTitle.replaceAll("\r\n", "<br>");
 		
-		//forward
-		String forward_page = "course_list.jsp";
-		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
-		disp.forward(request, response);
-
+		FavoritesVo vo = new FavoritesVo();
+		vo.setCoId(coId);
+		vo.setCoTitle(coTitle);
+		vo.setCoText(coText);
+		
+		int res = FavoritesDao.getInstance().insertCourse(vo);
+		
+		
+		response.sendRedirect("course.do");
 	}
 
 }
-

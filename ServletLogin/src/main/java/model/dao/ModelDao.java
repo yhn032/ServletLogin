@@ -106,7 +106,7 @@ public class ModelDao {
 			
 			//3.ResultSet 얻어오기
 			rs = pstmt.executeQuery();
-
+			
 			//4.포장(record -> Vo -> list)
 
 			while (rs.next()) {

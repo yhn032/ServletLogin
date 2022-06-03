@@ -16,7 +16,7 @@ import model.vo.FavoritesVo;
 /**
  * Servlet implementation class servletDetailAction
  */
-@WebServlet("/member/detail.do")
+@WebServlet("/favorites/detail.do")
 public class servletDetailAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
