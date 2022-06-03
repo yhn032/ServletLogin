@@ -13,8 +13,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 <c:if test="${empty user }">
@@ -24,7 +27,7 @@
 </c:if>
 
 
-<div id="mainbox">
+<div id="mainbox" style="font-family: 'Hi Melody', cursive;">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -33,11 +36,11 @@
       </div>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar" >
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" style="font-size: 24px;">
         <li><a href="main.do">Home</a></li>
         <li><a href="../favorites/course.do">코스추천</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" style="font-size: 18px;">
       	<c:if test="${empty user }">
 	      	<li><a href=""><input type="hidden">Guest님 환영합니다.</a></li>
       	</c:if>
@@ -96,7 +99,7 @@
 </div>
 
   
-<div class="container text-center">    
+<div class="container text-center" style="font-size: 24px;">    
   <h2>성공한 데이트 코스 후기</h2><br>
   <div class="row">
     <div class="col-sm-4">
@@ -114,7 +117,7 @@
   </div>
 </div><br>
 
-<footer class="container-fluid text-center" >
+<footer class="container-fluid text-center" style="font-size: 24px;" >
   <p>언제나 그대의 원활한 데이트를 기원하며...adios</p>
 </footer>
 </div>

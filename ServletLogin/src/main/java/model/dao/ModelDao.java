@@ -266,8 +266,155 @@ public class ModelDao {
 		return res;
 	}
 	
+	public int update(ModelVo vo) { // 호출한 사용자가 전달한 값
+		// TODO Auto-generated method stub
+		
+		int res = 0;
+		
+		Connection		   conn  = null;
+		PreparedStatement  pstmt = null;
+		
+										  // 1      2           3        4      5	    6		  7             
+		String sql = "update member2 set pwd=?, name=?, nickname=?, birth=?, tel=?, answer=? where email=?";
+		
+		
+		try {
+			//1.Connection 얻어오기
+			conn = DBService.getInstance().getConnection();
+			
+			//2.PreparedStatement 얻어오기
+			pstmt = conn.prepareStatement(sql); // 캐싱
+			
+			//3.pstmt의 변수처리된 parameter 설정과정
+			pstmt.setString(1, vo.getPwd());
+			pstmt.setString(2, vo.getName());
+			pstmt.setString(3, vo.getNickname());
+			pstmt.setString(4, vo.getBirth());
+			pstmt.setString(5, vo.getTel());
+			pstmt.setString(6, vo.getAnswer());
+			pstmt.setString(7, vo.getEmail());
+	
+			
+			//4.DML(insert/update/delete)명령 실행, res는 처리된 행수를반환
+			res = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		}finally {
+			
+			try {
+				//닫기 (열린 역순)
+				if(pstmt != null) pstmt.close(); // 2
+				if(conn != null) conn.close();   // 1
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		
+		return res;
+	}
 	
 	
+	public int delete(String email) { // 호출한 사용자가 전달한 값
+		// TODO Auto-generated method stub
+		
+		int res = 0;
+		
+		Connection		   conn  = null;
+		PreparedStatement  pstmt = null;
+		
+		
+		String sql = "delete from member2 where email=?";
+		
+		
+		try {
+			//1.Connection 얻어오기
+			conn = DBService.getInstance().getConnection();
+			
+			//2.PreparedStatement 얻어오기
+			pstmt = conn.prepareStatement(sql); // 캐싱
+			
+			//3.pstmt의 변수처리된 parameter 설정과정
+			pstmt.setString(1,email);
+			
+			//4.DML(insert/update/delete)명령 실행, res는 처리된 행수를반환
+			res = pstmt.executeUpdate();
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		}finally {
+			
+			try {
+				//닫기 (열린 역순)
+				if(pstmt != null) pstmt.close(); // 2
+				if(conn != null) conn.close();   // 1
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		
+		//리턴을 0으로 받으면 명령 실패!
+		return res;
+	}
+	
+	//회원가입용 email중복체크
+	public int emailcheck(String email) {
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int emailCheck = 0 ;
+		
+		String sql = "select * from member2 where email=?";
+		try {
+			//1.connection 얻어오기
+			//				 커낵션 객체생성, DB에게 커낵션얻기
+			conn = DBService.getInstance().getConnection();
+
+			//2.PreparedStatement 얻어오기
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, email);
+			
+			//3.ResultSet 얻어오기
+			rs = pstmt.executeQuery();
+
+			if(rs.getString("email").equals(email)) {
+				emailCheck = 0; //email사용불가
+			}else {
+				emailCheck = 1; //email사용가능
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+
+			try {
+				//연결(생성) 되었으면 닫아라.(생성 역순으로 닫기)
+				if (rs != null)
+					rs.close(); // 3
+				if (pstmt != null)
+					pstmt.close(); // 2
+				if (conn != null)
+					conn.close(); // 1
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return emailCheck;
+	}
 	
 }
 	
