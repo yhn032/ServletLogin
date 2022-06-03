@@ -133,7 +133,8 @@ $(document).ready(function(){
     
     $("#login_form").keypress(function(e){
     	if(e.keyCode == 13){
-    		$(this).submit();
+    		//$(this).submit();
+    		send(document.login);
     	}
     });
 });
