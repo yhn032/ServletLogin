@@ -1,19 +1,14 @@
 @charset "UTF-8";
 
-#main-login{ 
-	border: 1px solid black;
+#main{ 
+	border: 2px solid pink;
 	margin: 0 auto;
 	margin-top: 30px;
 	border-radius: 10px;
-	width: 35%;
-	min-height: 600px;
-	align-content: center;
-	
-}
-
-#content { 
-	margin-left: 5px;
-	align-content: center;
+	width: 800px;
+	min-height: 800px;
+	font-family: 'Hi Melody', cursive;
+	width: 800px;
 }
 
 #header { 
@@ -23,204 +18,17 @@
 }
 
 .form-control{
-	width: 70%;
+	width: 400px;
 	border-radius: 50px solid black;
-	margin: 0 auto;
 	margin-top: 10px;
 }
 
-#question{
-	text-align-last: center;
-	text-align: center;
-	vertical-align: middle;
-}
-
-i {
-	position: absolute;
-	left: 60%;
-	top: 250px;
-	color: orange;
-}
-
-#combobox{
-   margin-left: 5px;
-   padding: 10px;
-}
-
-#question{
+#enroll{
+	margin:auto;
 	
-	margin-left: 40px;
 }
 
-#social{
-	margin: auto;
-}
 
-#pwd{
-	margin-bottom: 10px;
-}
 
-#name{
-	clear: both;
-}
-help-tip{
 
-	float:right;
-	
-	margin-left: 5px;
-	
-	position: absolute;
 
-	margin-top: 10px;
-
-	right: 18px;
-
-	text-align: center;
-
-	background-color: pink;
-
-	border-radius: 50%;
-
-	width: 20%;
-
-	height: 50%;
-
-	font-size: 10px;
-
-	line-height: 26px;
-
-	cursor: default;
-
-}
-
- 
-
-.help-tip:before{
-
-	content:'?';
-
-	font-weight: bold;
-
-	color: red;
-
-
-}
-
- 
-
-.help-tip:hover p{
-
-	display: block;
-
-	transform-origin: 100% 0%;
-
-	-webkit-animation: fadeIn 0.3s ease-in-out;
-
-	animation: fadeIn 0.3s ease-in-out;
-
- 
-
-}
-
- 
-
-.help-tip p{
-
-	display: none;
-
-	text-align: left;
-
-	background-color: #1E2021;
-
-	padding: 20px;
-
-	width: 300px;
-
-	/* position: absolute; */
-
-	border-radius: 3px;
-
-	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-
-	right: -4px;
-
-	color: #FFF;
-
-	font-size: 13px;
-
-	line-height: 1.4;
-
-}
-
- 
-
-.help-tip p:before{
-
-	/* position: absolute; */
-
-	content: '';
-
-	width:0;
-
-	height: 0;
-
-	border:6px solid transparent;
-
-	border-bottom-color:#1E2021;
-
-	right:10px;
-
-	top:-12px;
-
-}
-
- 
-
-.help-tip p:after{
-
-	width:100%;
-
-	height:40px;
-
-	content:'';
-
-	position: absolute;
-
-	top:-40px;
-
-	right:0;
-
-}
-
- 
-
-@-webkit-keyframes fadeIn {
-
-	0% { 
-
-		opacity:0; 
-
-		transform: scale(0.6);
-
-	}
-
- 
-
-	100% {
-
-		opacity:100%;
-
-		transform: scale(1);
-	}
-
-}
-
-@keyframes fadeIn {
-
-	0% { opacity:0; }
-
-	100% { opacity:100%; }
-
-}​ 
-
-{}

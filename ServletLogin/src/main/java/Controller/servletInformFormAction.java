@@ -24,7 +24,7 @@ public class servletInformFormAction extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		//forward
-		String forward_page = "member_inform.jsp";
+		String forward_page = "member_modify.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
 		disp.forward(request, response);
 
