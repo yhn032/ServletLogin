@@ -28,3 +28,4 @@ drop table member2
 
 --sample
 insert into member2 values('hong1@naver.com', 'qwer1234!', '홍길동', '홍짱짱', '1994-08-12', '010-1234-1234', '고향은 어디입니까?', '조선')
+insert into member2 values('dkwlsdl8@google.com', 'dkwls1068', '서아진', '아직', '1993-07-06', '010-4555-4555', '고향은 어디입니까?', '퀘벡')

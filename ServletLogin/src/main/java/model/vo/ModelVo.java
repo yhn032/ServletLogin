@@ -33,6 +33,17 @@ public class ModelVo {
 
 
 
+	public ModelVo(String email, String pwd, String name, String nickname, String birth, String tel, String answer) {
+		super();
+		this.email = email;
+		this.pwd = pwd;
+		this.name = name;
+		this.nickname = nickname;
+		this.birth = birth;
+		this.tel = tel;
+		this.answer = answer;
+	}
+
 	public String getPwd() {
 		return pwd;
 	}
