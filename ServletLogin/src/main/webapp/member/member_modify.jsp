@@ -152,7 +152,7 @@ body{
     </div>
     
     <div style="margin-top:30px; text-align:center;">
-  	<button type="button" class="btn btn-default" onclick='modify(this.form); return false'>수정하기</button>
+  	<button type="button" class="btn btn-default" onclick='modify(this.form);'>수정하기</button>
     </div>
     
  </div>   

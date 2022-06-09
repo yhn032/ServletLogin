@@ -7,19 +7,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>연애작전</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>연애작전</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- CSS -->
+<link rel="stylesheet" href="../css/main.css">
+
+<!-- BootStrap3.x -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
 
 </head>
 <body>
 
 
-<div id="mainbox">
+<div id="mainbox" style="font-family: 'Hi Melody', cursive;">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -47,7 +55,7 @@
 </div>
 
 
-<div id="favContent">
+<div id="favContent" style="font-family: 'Hi Melody', cursive;">
 	<table id="c_table" class="table table-condensed">
 		
 		<!-- 제목 행 -->
@@ -77,7 +85,7 @@
 	</table>
 </div>
 
-<div id="detail_course">
+<div id="detail_course" style="font-family: 'Hi Melody', cursive;">
 	<div class="panel panel-danger">
       <div class="panel-heading" style="text-align: center;">${list.coTitle }</div>
       <div class="panel-body">${list.coText }</div>

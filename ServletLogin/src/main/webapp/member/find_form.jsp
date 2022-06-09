@@ -81,11 +81,41 @@
 </style>
 
 <script type="text/javascript">
+
+$(document).ready(function(){
+	setTimeout(showMessage, 100);
+});
+
+function showMessage(){
+	if("${param.reason eq 'fail_email'}" == "true"){
+		alert("이메일이 틀렸거나 존재하지 않습니다.");
+		return;
+	}
+	
+	if("${param.reason eq 'fail_question'}" == "true"){
+		alert("질문이 올바르지 않습니다. 회원가입시 설정한 질문을 선택해주세요.");
+		return;
+	}
+	
+	if("${param.reason eq 'fail_answer'}" == "true"){
+		alert("질문에 대한 답이 올바르지 않습니다.");
+		return;
+	}
+}
+
+
 function check(f){
 
 	var name = f.name.value;
 	var email = f.email.value;
 	var answer = f.answer.value;
+	
+	if(email==''){
+		alert('이메일이 올바로 입력되지 않았습니다.');
+		f.email.value='';
+		f.email.focus();
+		return;
+	}
 	
 	if(name==''){
 		alert('이름이 올바로 입력되지 않았습니다.');
@@ -93,12 +123,7 @@ function check(f){
 		f.name.focus();
 		return;
 	}
-	if(email==''){
-		alert('이메일이 올바로 입력되지 않았습니다.');
-		f.email.value='';
-		f.email.focus();
-		return;
-	}
+	
 	if(answer==''){
 		alert('답변이 입력되지 않았습니다.');
 		f.answer.value='';
@@ -120,16 +145,16 @@ function check(f){
 				<h2 class="card-title" style="color:#ffc0cb;"><img src="../image/연애대작전.png"> 연 애 대 작 전</h2>
 			</div>    
 			<div class="card-body">
-				<input type="email" name="email" id="email" class="form-control" placeholder="이메일" required autofocus><br>
-				<input type="text" name="name" id="name" class="form-control" placeholder="이름" required><br>
+				<input type="email" name="email" id="email" class="form-control" placeholder="이메일" required autofocus value="${param.email }"><br>
+				<input type="text" name="name" id="name" class="form-control" placeholder="이름" required value="${param.name }"><br>
 				<h4 class="card-title" style="color:#ffc0cb;">비밀번호 찾기 질문</h4>
 				    <select id="question" name = "question">
-		        	    <option value = "a" selected>고향은 어디입니까?</option>
-			            <option value = "b">좋아하는 연예인은 누구입니까?</option>
-			            <option value = "c">좋아하는 색깔은 무엇입니까?</option>
-		        	    <option value = "d">어머니의 이름은 무엇입니까?</option>
-			            <option value = "f">아버지의 이름은 무엇입니까?</option>
-			            <option value = "g">출신 초등학교의 이름은 무엇입니까?</option>
+		        	    <option value = "고향은 어디입니까?" selected>고향은 어디입니까?</option>
+			            <option value = "좋아하는 연예인은 누구입니까?">좋아하는 연예인은 누구입니까?</option>
+			            <option value = "좋아하는 색깔은 무엇입니까?">좋아하는 색깔은 무엇입니까?</option>
+		        	    <option value = "어머니의 이름은 무엇입니까?">어머니의 이름은 무엇입니까?</option>
+			            <option value = "아버지의 이름은 무엇입니까?">아버지의 이름은 무엇입니까?</option>
+			            <option value = "출신 초등학교의 이름은 무엇입니까?">출신 초등학교의 이름은 무엇입니까?</option>
 		             </select>
 		          
 				<input type="text" name="answer" id="answer" class="form-control" placeholder="답변" required>

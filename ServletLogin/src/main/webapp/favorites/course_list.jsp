@@ -8,12 +8,22 @@
 <title>연애작전</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS -->
 <link rel="stylesheet" href="../css/main.css">
+
+<!-- BootStrap3.x -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- icon -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
 
 <script type="text/javascript">
 /* 전역변수 */
@@ -53,7 +63,7 @@ $(document).ready(function (){
 </head>
 <body>
 
-<div id="mainbox">
+<div id="mainbox" style="font-family: 'Hi Melody', cursive;">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -101,7 +111,7 @@ $(document).ready(function (){
 
 </div>
 
-<div id="favContent">
+<div id="favContent" style="font-family: 'Hi Melody', cursive;">
 	
 	<table class="table table-condensed" id="c_table">
 		
