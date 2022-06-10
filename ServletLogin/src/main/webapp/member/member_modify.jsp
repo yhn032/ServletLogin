@@ -119,7 +119,7 @@ body{
     <div class="form-group">
       <label class="control-label col-sm-2" >닉네임</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" name="nickname" value="${ user.nickname }"  >
+        <input type="text" class="form-control" name="nickname" value="${ user.nickname }" readonly="readonly">
       </div>
       
     </div>

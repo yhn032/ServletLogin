@@ -85,6 +85,57 @@ public class FavoritesDao {
 		return list;
 	}
 	
+	public List<Integer> selectedCheck(String nickname) {
+
+		List<Integer> list = new ArrayList<Integer>();;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select idx from favorites where myNick = ?";
+
+		try {
+			//1. connection 얻어오기
+			conn = DBService.getInstance().getConnection();
+
+			//2. PreparedStatement 얻어오기
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, nickname);
+			//3. ResultSet 얻어오기 
+			rs = pstmt.executeQuery();
+
+			//4. 포장
+			while (rs.next()) {
+				
+				//list에 추가 
+				list.add(rs.getInt("idx"));
+
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();//
+		} finally {//반드시 실행하는 구문
+
+			try {
+
+				//연결되어 있는 상태면 끊어라.(생성 역순으로)
+
+				if (rs != null)
+					rs.close(); //3
+				if (pstmt != null)
+					pstmt.close();//2
+				if (conn != null)
+					conn.close();//1
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return list;
+	}
+	
 	public FavoritesVo selectOne(int idx) {
 
 		FavoritesVo vo = null;

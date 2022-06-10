@@ -28,30 +28,33 @@
 
 
 <div id="mainbox" style="font-family: 'Hi Melody', cursive;">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <div>
-      	<img src="../image/연애대작전.png" alt="Image">
-      </div>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar" >
-      <ul class="nav navbar-nav">
-        <li><a href="../member/main.do">Home</a></li>
-        <li><a href="insert_course_form.do">코스만들기</a></li>
-        <li><a href="course.do">코스추천</a></li>
-        <li><a href="mylist.do">찜한코스</a></li>
-        <li><a href="../member/member_inform.jsp">회원정보수정</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-      	<c:if test="${!empty user }">
-	      	<li><a href=""><input type="hidden">${user.nickname }님 환영합니다.</a></li>
-      	</c:if>
-        <li><a href="../member/logout.do"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <div>
+	      	<img src="../image/연애대작전.png" alt="Image">
+	      </div>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar" >
+	      <ul class="nav navbar-nav">
+	        <li><a href="../member/main.do">Home</a></li>
+	        <li><a href="insert_course_form.do">코스만들기</a></li>
+	        <li><a href="course.do">코스추천</a></li>
+	        <li><a href="mylist.do">찜한코스</a></li>
+	        <li><a href="../member/member_inform.jsp">회원정보수정</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	      	<c:if test="${!empty user }">
+		      	<li><a href=""><input type="hidden">${user.nickname }님 환영합니다.</a></li>
+	      	</c:if>
+	        <li><a href="../member/logout.do"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<div>
+		<input type="button" value="목록보기" onclick="location.href='course.do'">
+	</div>
 </div>
 
 

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.dao.FavoritesDao;
 import model.vo.FavoritesVo;
+import model.vo.ModelVo;
 
 /**
  * Servlet implementation class servletCourseAction
@@ -31,7 +32,19 @@ public class servletCourseAction extends HttpServlet {
 		
 		List<FavoritesVo> list = FavoritesDao.getInstance().selectList();
 		
+		//로그인 정보 읽어오기
+		ModelVo user = (ModelVo)request.getSession().getAttribute("user");
+		
+		if(user == null) { //세션이 만료된 경우
+			response.sendRedirect("../member/login_form.do?reason=session_timeout");
+			return;
+		}
+		
+		
+		
+		
 		request.setAttribute("list", list);
+		
 		
 		//forward
 		String forward_page = "course_list.jsp";

@@ -29,6 +29,14 @@ public class servletMyListAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		//로그인 정보 읽어오기
+		ModelVo user = (ModelVo)request.getSession().getAttribute("user");
+		
+		if(user == null) { //세션이 만료된 경우
+			response.sendRedirect("../member/login_form.do?reason=session_timeout");
+			return;
+		}
+		
 		//별을 클릭해서 즐겨찾기한 리스트만 출력 -> 로그인한 사용자만 이용가능
 		HttpSession session = request.getSession();
 		ModelVo vo = (ModelVo)session.getAttribute("user");
@@ -37,6 +45,8 @@ public class servletMyListAction extends HttpServlet {
 		//로그인하고 있는 계정 정보에 있는 닉네임으로 값을 조회
 		List<FavoritesVo> list = FavoritesDao.getInstance().selectFromNickname(nickname);
 		request.setAttribute("list", list);
+		
+		
 		
 		//forward
 		String forward_page = "mylist.jsp";
