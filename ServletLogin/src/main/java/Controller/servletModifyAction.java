@@ -25,6 +25,14 @@ public class servletModifyAction extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		//로그인 정보 읽어오기
+		ModelVo user = (ModelVo)request.getSession().getAttribute("user");
+		
+		if(user == null) { //세션이 만료된 경우
+			response.sendRedirect("../member/login_form.do?reason=session_timeout");
+			return;
+		}
 
 		request.setCharacterEncoding("utf-8");
 		

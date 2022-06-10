@@ -142,7 +142,17 @@ $(document).ready(function(){
     		send(document.login);
     	}
     });
+    
+    setTimeout(showMessage, 100);
 });
+
+function showMessage(){
+	
+	if("${param.reason eq 'session_timeout'}" == "true"){
+		alert('로그아웃 되었습니다. 다시 로그인해주세요.');
+		return;
+	}
+}
 
 var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 

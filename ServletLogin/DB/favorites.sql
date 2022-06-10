@@ -18,6 +18,7 @@ delete favorites where idx = 2;
 
 --��ȸ
 select * from favorites
+select idx from favorites where myNick='ȫ¯¯';
 
 --test
 update favorites set coView= coview+1 where idx=1

@@ -8,12 +8,22 @@
 <title>연애작전</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS -->
 <link rel="stylesheet" href="../css/main.css">
+
+<!-- BootStrap3.x -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- icon -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
 
 <script type="text/javascript">
 /* 전역변수 */
@@ -21,10 +31,35 @@ idx = 0;
 function send(i){
 	idx = i; 
 }
+
 $(document).ready(function (){
+	$.ajax({
+		type:'GET',
+		url:'check_select.do',
+		data:{'nickname':'${user.nickname}'},
+		dataType:'json',
+		success:function(res_data){
+			//idx값을 배열로 받아와서 해당 인덱스의 별은 attr OR prop(value="★")로 초기화하자.
+			if(res_data.idx == -1){
+				alert('즐찾 없음');
+				return;
+			}
+			for(var i=0; i<res_data.idx_arr.length;i++){
+				//alert(res_data.idx_arr[i].idx);
+				var s = res_data.idx_arr[i].idx;
+				//console.log(s);
+				$("#"+s).val("★");
+			}
+		},
+		error:function(err){
+			alert(err.responseText);
+		}
+	});
+	
+	
 	$(".star").click(function(){
-		if($(this).val() == '☆'){
-			$(this).val('★');
+		if($(this).val() == "☆"){
+			$(this).val("★");
 			$.ajax({
 				type:'GET',
 				url :'update_mylist.do',
@@ -34,8 +69,8 @@ $(document).ready(function (){
 				}
 			});
 			alert('즐겨찾기에 추가되었습니다.');
-		}else{
-			$(this).val('☆');
+		}else {
+			$(this).val("☆");
 			$.ajax({
 				type:'GET',
 				url :'delete_mylist.do',
@@ -53,7 +88,7 @@ $(document).ready(function (){
 </head>
 <body>
 
-<div id="mainbox">
+<div id="mainbox" style="font-family: 'Hi Melody', cursive;">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -101,7 +136,7 @@ $(document).ready(function (){
 
 </div>
 
-<div id="favContent">
+<div id="favContent" style="font-family: 'Hi Melody', cursive;">
 	
 	<table class="table table-condensed" id="c_table">
 		
@@ -131,7 +166,7 @@ $(document).ready(function (){
 					<td>로그인시 사용가능</td>
       			</c:if>
 		      	<c:if test="${!empty user }">
-					<td><input type="button" class="star" value="☆" onclick="send(${vo.idx})"></td>
+					<td><input type="button" class="star" id="${vo.idx}" value="☆" onclick="send(${vo.idx})"></td>
 		      	</c:if>
 			</tr>
 			

@@ -24,10 +24,8 @@ public class servletLogOutAction extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		//세션값 읽어오기
-		HttpSession session = request.getSession();
-		//세션값 삭제하기
-		session.invalidate();
+		//세션값 저장된 사용자 정보 읽어와서 삭제하기
+		request.getSession().removeAttribute("user");
 		
 		//forward
 		String forward_page = "main.do";

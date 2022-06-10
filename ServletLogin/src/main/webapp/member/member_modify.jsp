@@ -119,7 +119,7 @@ body{
     <div class="form-group">
       <label class="control-label col-sm-2" >닉네임</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" name="nickname" value="${ user.nickname }"  >
+        <input type="text" class="form-control" name="nickname" value="${ user.nickname }" readonly="readonly">
       </div>
       
     </div>
@@ -152,7 +152,7 @@ body{
     </div>
     
     <div style="margin-top:30px; text-align:center;">
-  	<button type="button" class="btn btn-default" onclick='modify(this.form); return false'>수정하기</button>
+  	<button type="button" class="btn btn-default" onclick='modify(this.form);'>수정하기</button>
     </div>
     
  </div>   
