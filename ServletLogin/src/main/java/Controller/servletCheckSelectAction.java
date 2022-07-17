@@ -14,6 +14,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import model.dao.FavoritesDao;
+import model.dao.MyCourseDao;
+import model.vo.ModelVo;
 
 /**
  * Servlet implementation class servletCheckSelectAction
@@ -28,11 +30,23 @@ public class servletCheckSelectAction extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nickname = request.getParameter("nickname");
-		
-		List<Integer> list = FavoritesDao.getInstance().selectedCheck(nickname);
-		//System.out.println(list.toString());
 		JSONObject json = new JSONObject();
+		ModelVo user = (ModelVo) request.getSession().getAttribute("user");
+		if(user == null) {
+			json.put("ses", "false");
+			
+			String json_str = json.toJSONString();
+			//System.out.println(json_str);
+			response.setContentType("text/json; charset=utf-8;");
+			response.getWriter().print(json_str);
+			return;
+		}
+		
+		int m_idx = user.getM_idx();
+		
+		List<Integer> list = MyCourseDao.getInstance().selectedCheck(m_idx);
+		
+		
 		if(list.size() > 0) {
 			
 			try {
@@ -41,19 +55,19 @@ public class servletCheckSelectAction extends HttpServlet {
 				for(int i=0; i<list.size();i++) {
 					JSONObject arrobj = new JSONObject();//배열 내에 들어갈 json
 					
-					arrobj.put("idx", list.get(i));
+					arrobj.put("f_idx", list.get(i));
 					
 					jarr.add(arrobj);
 				}
 				
-				json.put("idx_arr", jarr);
+				json.put("f_idx_arr", jarr);
 				
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
 			
 		}else {//list.size() == 0
-			json.put("idx", -1);
+			json.put("f_idx", -1);
 		}
 		
 		String json_str = json.toJSONString();

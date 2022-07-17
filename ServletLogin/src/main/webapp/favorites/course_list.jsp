@@ -26,62 +26,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
 
 <script type="text/javascript">
-/* 전역변수 */
-idx = 0;
 function send(i){
-	idx = i; 
+	
+	var star = $("#"+i).val();
+	if(star == "☆"){
+		$("#"+i).val("★");
+		$.ajax({
+			type:'GET',
+			url :'update_mylist.do',
+			data:{'f_idx':i},
+			success:function(res){
+				if(res.res){
+					alert('즐겨찾기에 추가되었습니다.');
+				}else{
+					alert('즐겨찾기에 추가 실패했습니다.');
+				}
+			}
+		});
+		
+	}else {
+		$("#"+i).val("☆");
+		$.ajax({
+			type:'GET',
+			url :'delete_mylist.do',
+			data:{'f_idx':i},
+			success:function(res){
+				if(res.res){
+					alert('즐겨찾기가 삭제되었습니다.');
+				}else{
+					alert('즐겨찾기 삭제 실패했습니다.');
+				}
+			}
+		});
+	}
 }
 
 $(document).ready(function (){
 	$.ajax({
 		type:'GET',
 		url:'check_select.do',
-		data:{'nickname':'${user.nickname}'},
+		data:{"m_idx":"${user.m_idx}"},
 		dataType:'json',
 		success:function(res_data){
+			/*if(res_data.ses == "false"){
+				location.href="../member/login_form.do?reason=session_timeout";
+			}*/
 			//idx값을 배열로 받아와서 해당 인덱스의 별은 attr OR prop(value="★")로 초기화하자.
-			if(res_data.idx == -1){
+			if(res_data.f_idx == -1){
 				alert('즐찾 없음');
 				return;
 			}
-			for(var i=0; i<res_data.idx_arr.length;i++){
-				//alert(res_data.idx_arr[i].idx);
-				var s = res_data.idx_arr[i].idx;
-				//console.log(s);
+			for(var i=0; i<res_data.f_idx_arr.length;i++){
+				var s = res_data.f_idx_arr[i].f_idx;
 				$("#"+s).val("★");
 			}
 		},
 		error:function(err){
 			alert(err.responseText);
 		}
-	});
-	
-	
-	$(".star").click(function(){
-		if($(this).val() == "☆"){
-			$(this).val("★");
-			$.ajax({
-				type:'GET',
-				url :'update_mylist.do',
-				data:{'nickname':'${user.nickname}', 'idx':idx},
-				success:function(res){
-					console.log(1);
-				}
-			});
-			alert('즐겨찾기에 추가되었습니다.');
-		}else {
-			$(this).val("☆");
-			$.ajax({
-				type:'GET',
-				url :'delete_mylist.do',
-				data:{'idx':idx},
-				success:function(res){
-					console.log(1);
-				}
-			});
-			alert('즐겨찾기에서 삭제되었습니다.');
-		}
-	});
+	}); 
+
 });
 
 </script>
@@ -158,15 +162,15 @@ $(document).ready(function (){
 		<!-- 데이터가 있다면 -->
 		<c:forEach var="vo" items="${list }">
 			<tr>
-				<td>${vo.idx }</td>
-				<td><input style="background-color: white; border: none;" type="button" onclick="location.href='../favorites/detail.do?idx=${vo.idx}'" value="${vo.coTitle }"></td>
+				<td>${vo.f_idx }</td>
+				<td><input style="background-color: white; border: none;" type="button" onclick="location.href='../favorites/detail.do?f_idx=${vo.f_idx}'" value="${vo.coTitle }"></td>
 				<td>${vo.coId }</td>
 				<td>${vo.coView }</td>
 				<c:if test="${empty user }">
 					<td>로그인시 사용가능</td>
       			</c:if>
 		      	<c:if test="${!empty user }">
-					<td><input type="button" class="star" id="${vo.idx}" value="☆" onclick="send(${vo.idx})"></td>
+					<td><input type="button" class="star" id="${vo.f_idx}" value="☆" onclick="send(${vo.f_idx})"></td>
 		      	</c:if>
 			</tr>
 			

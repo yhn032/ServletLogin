@@ -13,6 +13,8 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!-- CKEditor -->
+<script src="//cdn.ckeditor.com/4.19.0/full/ckeditor.js"></script>
 <title>코스 만들기</title>
 <style>
     @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
@@ -35,6 +37,8 @@
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
+        width: 800px;
+        background-color: #FFF0F5;
 	}
 
     #btn-Yes{
@@ -58,6 +62,7 @@
     .card-title{
         margin: auto;
         padding-right: 10px;
+        margin-top:30px;
     }
 	 .links{
         text-align: center;
@@ -79,12 +84,56 @@
     }
    
 </style>
+<script type="text/javascript">
+	var toolbar = {
+            toolbarGroups : [
+            	{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+    			{ name: 'editing', groups: [ 'selection', 'find', 'spellchecker', 'editing' ] },
+    			{ name: 'links', groups: [ 'links' ] },
+    			{ name: 'insert', groups: [ 'insert' ] },
+    			{ name: 'forms', groups: [ 'forms' ] },
+    			{ name: 'tools', groups: [ 'tools' ] },
+    			{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+    			{ name: 'others', groups: [ 'others' ] },
+    			{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+    			'/',
+    			{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+    			{ name: 'styles', groups: [ 'styles' ] },
+    			{ name: 'colors', groups: [ 'TextColor', 'BGColor'] },
+    			{ name: 'about', groups: [ 'about' ] }
+            ],
 
+            removeButtons : 'Underline,PasteFromWord,PasteText,Unlink,Anchor,Image,Source,RemoveFormat,Blockquote,About',
+        };
+
+</script>
 
 <script type="text/javascript">
 	function send(f){
 		var coTitle = f.coTitle.value.trim();
-		var coText  = f.coText.value.trim();
+		//var coText  = f.coText.value.trim();
+		var coText  = CKEDITOR.instances.coText.getData();
+		var photo1 = f.coPhoto1.value;
+		var photo2 = f.coPhoto2.value;
+		var photo3 = f.coPhoto3.value;
+		
+		if(coTitle==''){
+			alert('제목을 입력하세요.');
+			f.coTitle.value='';
+			f.coTitle.focus();
+			return;
+		}
+		if(photo1=='' && photo2=='' && photo3==''){
+			alert("업로드할 사진을 최소 1장 선택하세요.");
+			return;
+		}
+		
+		if(coText==''){
+			alert('내용을 입력하세요.');
+			f.coText.value='';
+			f.coText.focus();
+			return;
+		}
 		
 		f.action="insert_course.do";
 		
@@ -96,15 +145,32 @@
 </head>
 
 <body>
-	<form>
-		<div class="card align" style="width:500px; background-color: #FFF0F5;">
-			<div class="card-title" style="margin-top:30px;">        
+	<form method="POST" enctype="multipart/form-data">
+		<div class="card align" id="mainBox">
+			<div class="card-title">        
 				<h2 class="card-title" style="color:#ffc0cb;"><img src="../image/연애대작전.png" onclick="location.href='../member/main.do'"> 연 애 대 작 전</h2>
 			</div>    
 			<div class="card-body">
 				<input type="hidden" name="coId" value="${user.nickname }">
-				<input type="text" name="coTitle" id="coTitle" class="form-control" placeholder="코스 제목" required autofocus><br>
+				<table>	
+					<tr>
+						
+					</tr>
+				</table>
+				<h4 style="color:#ffc0cb;"> 코 스 제 목 </h4>
+				<input type="text" name="coTitle" id="coTitle" class="form-control" required autofocus><br>
+				
+				
+				<h4 style="color:#ffc0cb;"> 코 스 내 용 </h4>
 		        <textarea rows="7" cols="50" name="coText" id="coText" class="form-control" placeholder="내용"></textarea>
+		        <script>
+		        	CKEDITOR.replace('coText', toolbar);
+		        </script>
+		        
+		        <br><br><h4 style="color:#ffc0cb;"> 대 표 사 진(최대 3장) </h4>
+		        <input name="coPhoto1" type="file">
+		        <input name="coPhoto2" type="file">
+		        <input name="coPhoto3" type="file">
 			</div>
 			
 			<input id="btn-Yes" class="btn btn-lg w-btn w-btn-pink" type="button" onclick="send(this.form);" value="코스 등록하기">

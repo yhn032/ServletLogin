@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- typeAlias : type의 별칭 부여-->
+	<typeAliases>
+		<typeAlias type="model.vo.ModelVo" alias="member"/>
+		<typeAlias type="model.vo.FavoritesVo" alias="favor"/>
+		<typeAlias type="model.vo.MyListVo" alias="myList"/>
+		<typeAlias type="model.vo.MyCourseVo" alias="myCourse"/>
+	</typeAliases>
+
+
+	<environments default="">
+		<environment id="">		<!-- DB에 연결하는 작업 -->
+			<transactionManager type="JDBC" />
+			<dataSource type="JNDI">
+				<property name="data_source" 
+				          value="java:comp/env/jdbc/oracle_test" />			<!-- JNDI를 쓸것이라고 명시하고 value값만 정확하게 주면 된다. -->
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- Mapping하는 작업 -->
+	<mappers>
+		<mapper resource="config/mybatis/mapper/favor.xml" />
+		<mapper resource="config/mybatis/mapper/member.xml" />
+		<mapper resource="config/mybatis/mapper/myList.xml" />
+	</mappers>
+</configuration>

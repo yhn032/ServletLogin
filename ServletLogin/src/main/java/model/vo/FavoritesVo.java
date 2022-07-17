@@ -1,23 +1,62 @@
 package model.vo;
 
 public class FavoritesVo {
-	int idx;
+	int f_idx;
 	String coTitle;
 	String coId;
 	int coView;
 	String coText;
+	String coPhoto1;
+	String coPhoto2;
+	String coPhoto3;
 	
 	
 	
+	public String getCoPhoto1() {
+		return coPhoto1;
+	}
+
+
+
+	public void setCoPhoto1(String coPhoto1) {
+		this.coPhoto1 = coPhoto1;
+	}
+
+
+
+	public String getCoPhoto2() {
+		return coPhoto2;
+	}
+
+
+
+	public void setCoPhoto2(String coPhoto2) {
+		this.coPhoto2 = coPhoto2;
+	}
+
+
+
+	public String getCoPhoto3() {
+		return coPhoto3;
+	}
+
+
+
+	public void setCoPhoto3(String coPhoto3) {
+		this.coPhoto3 = coPhoto3;
+	}
+
+
+
 	public FavoritesVo() {
 		super();
 	}
 
 
 
-	public FavoritesVo(int idx, String coTitle, String coId, int coView, String coText) {
+	public FavoritesVo(int f_idx, String coTitle, String coId, int coView, String coText) {
 		super();
-		this.idx = idx;
+		this.f_idx = f_idx;
 		this.coTitle = coTitle;
 		this.coId = coId;
 		this.coView = coView;
@@ -38,14 +77,14 @@ public class FavoritesVo {
 
 
 
-	public int getIdx() {
-		return idx;
+	public int getF_idx() {
+		return f_idx;
 	}
 
 
 
-	public void setIdx(int idx) {
-		this.idx = idx;
+	public void setF_idx(int f_idx) {
+		this.f_idx = f_idx;
 	}
 
 

@@ -1,7 +1,6 @@
 package Controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,10 +13,10 @@ import model.dao.FavoritesDao;
 import model.vo.FavoritesVo;
 
 /**
- * Servlet implementation class servletDetailAction
+ * Servlet implementation class servletModifyCourseFormAction
  */
-@WebServlet("/favorites/detail.do")
-public class servletDetailAction extends HttpServlet {
+@WebServlet("/favorites/modify_form.do")
+public class servletModifyCourseFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,20 +25,18 @@ public class servletDetailAction extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// 게시물의 제목을 클릭하면 -> 해당 게시물의 게시글 번호를 파라미터로 받아서 게시물에 해당하는 데이터를 detail.jsp에 출력한다.
-		
 		int f_idx = Integer.parseInt(request.getParameter("f_idx"));
 		
-		//조회수 +1증가시키기
-		FavoritesDao.getInstance().countPlusView(f_idx);
-		
-		//idx값에 해당하는 테이블 조회하기
 		FavoritesVo vo = FavoritesDao.getInstance().selectOne(f_idx);
 		
-		
 		request.setAttribute("list", vo);
-	    RequestDispatcher disp = request.getRequestDispatcher("detail.jsp");
-	    disp.forward(request, response);
+		
+		//forward
+		String forward_page = "modify_course_form.jsp";
+		RequestDispatcher disp = request.getRequestDispatcher(forward_page);
+		disp.forward(request, response);
+
 	}
 
 }
+

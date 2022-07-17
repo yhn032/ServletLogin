@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -44,6 +43,7 @@
 
 i {
 	color: orange;
+	
 }
 
 .form_list_input input {
@@ -111,6 +111,7 @@ div input{
 }
 
 #footer {
+
 	font-size: 8px;
 	margin-top: 20px;
 	float: right;
@@ -150,6 +151,21 @@ function showMessage(){
 	
 	if("${param.reason eq 'session_timeout'}" == "true"){
 		alert('로그아웃 되었습니다. 다시 로그인해주세요.');
+		return;
+	}
+	
+	if("${param.reason eq 'failId'}" == "true"){
+		alert('존재하지 않는 아이디입니다.');
+		$("#email").val("");
+		$("#email").focus();
+		return;
+	}
+	
+	if("${param.reason eq 'failPwd'}" == "true"){
+		alert('비밀번호가 틀렸습니다.');
+		$("#email").val("${param.email}");
+		$("#pwd").val("");
+		$("#pwd").focus();
 		return;
 	}
 }
@@ -205,7 +221,7 @@ function send(f){
 		<h4>로그인</h4>
 	</div>
 	
-	<form action="login.do" method="GET" id="login_form" name="login">
+	<form id="login_form" name="login">
 		<div id="content">
 			    <div class="form_list_input">
 					<input type="email" placeholder="Email" id="email" name="email">
@@ -226,7 +242,6 @@ function send(f){
 		<input id="naver" type="button" value="네이버로 계속" onclick="location.href='https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com'"><br>
 		<input id="google" type="button" value="구글로 계속" onclick="location.href='https://www.google.com/'"><br>
 	</div>
-	
 	
 	<div class="login-enroll"><a href="enroll_form.do">아직 아이디가 없으신가요?</a></div>
 	<div id="footer">

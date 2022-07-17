@@ -12,15 +12,27 @@ public class ModelVo {
 	String tel;
 	String question;
 	String answer;
+	int m_idx;
 	
+	public int getM_idx() {
+		return m_idx;
+	}
+
+	public void setM_idx(int m_idx) {
+		this.m_idx = m_idx;
+	}
+
 	public ModelVo() {
 		
 	}
 
-	public ModelVo(String email, String pwd, String name, String nickname, String birth, String tel, 
-			String question, String answer) {
-		super();
 	
+
+
+
+	public ModelVo(String email, String pwd, String name, String nickname, String birth, String tel, String question,
+			String answer) {
+		super();
 		this.email = email;
 		this.pwd = pwd;
 		this.name = name;
@@ -30,8 +42,6 @@ public class ModelVo {
 		this.question = question;
 		this.answer = answer;
 	}
-
-
 
 	public ModelVo(String email) {
 		// TODO Auto-generated constructor stub

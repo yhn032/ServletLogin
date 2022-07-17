@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myList">
+	<select id="selectMyList" parameterType="int" resultType="myList">
+		select * from myList where m_idx = #{m_idx}
+	</select>
+	
+	<select id="selectedCheck" parameterType="int" resultType="java.lang.Integer">
+		select f_idx from myList where m_idx = #{m_idx}
+	</select>
+	
+	<delete id="deleteMyCourse" parameterType="myCourse">
+		delete from mycourse where m_idx=#{m_idx} and f_idx=#{f_idx}
+	</delete>
+	
+	<insert id="insertMyCourse" parameterType="myCourse">
+		insert into mycourse values(seq_mycourse_idx.nextVal, #{m_idx}, #{f_idx})
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

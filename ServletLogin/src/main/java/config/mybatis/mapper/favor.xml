@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="favor">
+
+	<select id="selectList" resultType="favor">
+		select * from favorites order by coView desc
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="favor">
+		select * from favorites where f_idx = #{f_idx}
+	</select>
+	
+	<insert id="insertCourse" parameterType="favor">
+		insert into favorites values( (select nvl(max(f_idx)+1, 1) from favorites), #{coTitle}, #{coId}, 0, #{coText}, #{coPhoto1}, #{coPhoto2}, #{coPhoto3})
+	</insert>
+	
+	<update id="updateCoView" parameterType="int">
+		update favorites set coView = coview+1 where f_idx=#{f_idx}
+	</update>
+	
+	<delete id="deleteCourse" parameterType="int">
+		delete from favorites where f_idx=#{f_idx}
+	</delete>
+	
+	<update id="updateCoPhoto1" parameterType="favor">
+		update favorites set coPhoto1=#{coPhoto1} where f_idx=#{f_idx}
+	</update>
+	
+	<update id="updateCoPhoto2" parameterType="favor">
+		update favorites set coPhoto2=#{coPhoto2} where f_idx=#{f_idx}
+	</update>
+	
+	<update id="updateCoPhoto3" parameterType="favor">
+		update favorites set coPhoto3=#{coPhoto3} where f_idx=#{f_idx}
+	</update>
+	
+	<update id="updateFavor" parameterType="favor">
+		update favorites set coTitle=#{coTitle}, coText=#{coText} where f_idx=#{f_idx}
+	</update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

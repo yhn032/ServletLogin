@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.FavoritesDao;
+import model.dao.MyCourseDao;
 import model.vo.FavoritesVo;
 import model.vo.ModelVo;
+import model.vo.MyListVo;
 
 /**
  * Servlet implementation class servletMyListAction
@@ -40,10 +42,10 @@ public class servletMyListAction extends HttpServlet {
 		//별을 클릭해서 즐겨찾기한 리스트만 출력 -> 로그인한 사용자만 이용가능
 		HttpSession session = request.getSession();
 		ModelVo vo = (ModelVo)session.getAttribute("user");
-		String nickname = vo.getNickname();
+		int m_idx = vo.getM_idx();
 		
 		//로그인하고 있는 계정 정보에 있는 닉네임으로 값을 조회
-		List<FavoritesVo> list = FavoritesDao.getInstance().selectFromNickname(nickname);
+		List<MyListVo> list = MyCourseDao.getInstance().selectMyList(m_idx);
 		request.setAttribute("list", list);
 		
 		

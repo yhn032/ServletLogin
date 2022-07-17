@@ -26,9 +26,6 @@
 
 </head>
 <body>
-<c:if test="${empty user }">
-나의 리스트 기능은 로그인시에만 사용가능합니다.
-</c:if>
 
 <c:if test="${!empty user }">
 	<div id="mainbox" style="font-family: 'Hi Melody', cursive;">
@@ -58,7 +55,7 @@
 		</nav>
 	</div>
 	
-	<div class="panel panel-success" id="mylist_title" style="font-family: 'Hi Melody', cursive;"> 
+	<div class="panel panel-success" id="mylist_title" style="font-family: 'Hi Melody', cursive; margin-left: 300px;"> 
 		<div class="panel-heading" style="text-align: center;">
 			${user.nickname }님이 찜한 데이트 코스 리스트
 			<input class="btn btn-warning" type="button" value="찜하러 가기" onclick="location.href='course.do'">
@@ -86,15 +83,11 @@
 			<c:if test="${!empty list }">
 				<c:forEach var="vo" items="${list }">
 					<tr>
-						<td>${vo.idx }</td>
-						<td>${vo.coTitle}</td>
+						<td>${vo.f_idx }</td>
+						<td><a href="detail.do?f_idx=${vo.f_idx}">${vo.coTitle}</a></td>
 						<td>${vo.coId }</td>
 						<td>${vo.coView }</td>
 					</tr>
-					<tr>
-						<td colspan="4">${vo.coText }</td>
-					</tr>
-					
 				</c:forEach>
 			</c:if>
 				

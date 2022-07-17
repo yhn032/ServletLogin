@@ -53,7 +53,7 @@
 	  </div>
 	</nav>
 	<div>
-		<input type="button" value="목록보기" onclick="location.href='course.do'">
+		<input type="button" class="btn btn-info" value="목록보기" onclick="location.href='course.do'">
 	</div>
 </div>
 
@@ -78,7 +78,7 @@
 		<!-- 데이터가 있다면 -->
 		<c:if test="${!empty list }">
 			<tr>
-				<td>${list.idx }</td>
+				<td>${list.f_idx }</td>
 				<td>${list.coTitle}</td>
 				<td>${list.coId }</td>
 				<td>${list.coView }</td>
@@ -89,9 +89,30 @@
 </div>
 
 <div id="detail_course" style="font-family: 'Hi Melody', cursive;">
-	<div class="panel panel-danger">
-      <div class="panel-heading" style="text-align: center;">${list.coTitle }</div>
-      <div class="panel-body">${list.coText }</div>
+	<div class="panel panel-danger" style="width: 800px;">
+      <div class="panel-heading" style="text-align: center;" >
+      	${list.coTitle }
+      	<c:if test="${list.coId eq user.nickname}">
+      		<input type="button" class="btn btn-success" value="수정" onclick="location.href='modify_form.do?f_idx=${list.f_idx}'">
+      		<input type="button" class="btn btn-danger"  value="삭제" onclick="location.href='delete.do?f_idx=${list.f_idx}'">
+      	</c:if>
+      </div>
+      <div class="panel-body">
+      	<h1>내용</h1>
+      	${list.coText }
+      </div>
+      <div>
+      	<h1>대표이미지</h1>
+      	<c:if test="${list.coPhoto1 ne 'no_file'}">
+	      	<img src="${pageContext.request.contextPath }/upload/${list.coPhoto1}" width="350px;" height="300px">
+      	</c:if>
+      	<c:if test="${list.coPhoto2 ne 'no_file'}">
+	      	<img src="${pageContext.request.contextPath }/upload/${list.coPhoto2}" width="350px;" height="300px">
+      	</c:if>
+      	<c:if test="${list.coPhoto3 ne 'no_file'}">
+	      	<img src="${pageContext.request.contextPath }/upload/${list.coPhoto3}" width="350px;" height="300px">
+      	</c:if>
+      </div>
     </div>
 </div>
 </body>
